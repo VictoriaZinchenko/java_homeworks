@@ -14,8 +14,7 @@ public class Exercise2 {
         int len = str.length() ;
         while (index < len) {
             char ch = str.charAt(index++) ;
-            if( str.contains(String.valueOf(ch)) &&
-                    !conStr.contains(String.valueOf(ch))) {
+            if(  !conStr.contains(String.valueOf(ch))) {
                 conStr = conStr + ch ;
             }
         }
