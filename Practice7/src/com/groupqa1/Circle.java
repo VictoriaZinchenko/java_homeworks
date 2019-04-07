@@ -1,30 +1,27 @@
 package com.groupqa1;
 
 public class Circle extends Shape{
-    double radius;
+    private double radius;
     final double PI = 3.14;
-    String color = "blue";
+
 
     public Circle() {
     }
 
-    public Circle(double radius) {
+    public Circle(String color, double radius) {
+        super(color);
         this.radius = radius;
     }
 
-    public double square(double a){
-        double result = a*a;
-        return result;
-    }
     @Override
     public String toString()
     {
-        return "class = Circle;" + " color = " + color +  "; radius = " + radius;
-    }
-    @Override
-    public double calcArea(){
-        area = PI * square(radius);
-        return area;
+        return super.toString() + ", radius = " + radius;
     }
 
+    @Override
+    public double calcArea() {
+        double area = PI * radius * radius;
+        return area;
+    }
 }
