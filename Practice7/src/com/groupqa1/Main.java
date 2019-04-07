@@ -1,29 +1,37 @@
 package com.groupqa1;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         Shape[] shapes = new Shape[]{
-                new Rectangle(12, 3),
-                new Rectangle(8.8, 5),
-                new Rectangle(17, 6.5),
-                new Rectangle(23.2, 10.5),
-                new Circle(7),
-                new Circle(12),
-                new Circle(4.5),
-                new Triangle(3, 4, 5),
-                new Triangle(8, 9, 10)
+                new Rectangle("green", 12, 3),
+                new Rectangle("red", 8.8, 5),
+                new Rectangle("black", 17, 6.5),
+                new Rectangle("blue", 23.2, 10.5),
+                new Circle("white", 7),
+                new Circle("pink", 12),
+                new Circle("orange", 4.5),
+                new Triangle("purple", 3, 4, 5),
+                new Triangle("yellow", 8, 9, 10)
         };
 
-        viewShapes(shapes);
+
         System.out.println("\n Total area of all shapes = " + getTotalArea(shapes));
         System.out.println(getAreas(shapes));
-    }
 
+        System.out.println("-----Comparing Shapes By Area-----");
+        Arrays.sort(shapes, new CompareShapeByArea());
+        viewShapes(shapes);
+        System.out.println("-----Comparing Shapes By Color-----");
+        Arrays.sort(shapes, new CompareShapeByColor());
+        viewShapes(shapes);
+
+    }
     static void viewShapes(Shape[] shapes) {
-        int number = 0;
         for (Shape shape : shapes) {
-            System.out.println("Shape" + ++number +":" + shape + "\n Area = " + shape.calcArea());
+            shape.draw();
         }
     }
 
