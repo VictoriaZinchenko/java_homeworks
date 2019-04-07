@@ -3,24 +3,24 @@ package com.groupqa1;
 public class Rectangle extends Shape{
     double width;
     double height;
-    String color = "red";
+
 
     public Rectangle() {
     }
 
-    public Rectangle(double width, double height) {
+    public Rectangle(String color, double width, double height) {
+        super(color);
         this.width = width;
         this.height = height;
     }
     @Override
     public String toString()
     {
-        return "class = Rectangle;"+ " color = " + color
-                + "\n The width = " + width +";" + " the height = " + height;
+        return super.toString() + ". The width = " + width +";" + " the height = " + height;
     }
     @Override
     public double calcArea(){
-        area = width * height;
+       double area = width * height;
         return area;
     }
 }
